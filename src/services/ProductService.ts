@@ -7,6 +7,11 @@ class ProductService {
     const products = await productModel.getAll();
     return products;
   };
+
+  public create = async (name: string, amount: string, orderId: number) => {
+    const product = await productModel.create(name, amount, orderId);
+    return product;
+  };
 }
 
 export default ProductService;
