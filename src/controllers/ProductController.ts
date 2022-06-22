@@ -12,6 +12,16 @@ class ProductController {
       console.log(error);
     }
   };
+
+  public create = async (req: Request, res: Response) => {
+    try {
+      const { name, amount, orderId } = req.body;
+      const product = await productService.create(name, amount, orderId);
+      return res.status(201).json(product);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export default ProductController;
